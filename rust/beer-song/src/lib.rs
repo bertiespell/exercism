@@ -7,7 +7,7 @@ pub fn verse(n: i32) -> String {
     }
 }
 
-pub fn sing(start: i32, end: i32) -> String {
+pub fn singx(start: i32, end: i32) -> String {
     let mut song = String::new();
     let mut counter = start;
     while counter >= end {
@@ -17,4 +17,14 @@ pub fn sing(start: i32, end: i32) -> String {
     }
     song.pop(); // remove additional \n character
     song
+}
+
+// refactored
+
+pub fn sing(start: i32, end: i32) -> String {
+    (end..=start)
+        .rev() // we want them backwards
+        .map(verse) // yaaas
+        .collect::<Vec<_>>() // need to collect these up now into a Vec
+        .join("\n") // join them together with a new line
 }
