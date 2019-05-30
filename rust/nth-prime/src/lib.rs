@@ -30,8 +30,7 @@ fn test_prime_efficient(number: u32, primes: &Vec<u32>) -> bool {
     // check whether any prime integer m from 2 to √n evenly divides n (the division leaves no remainder)
     let mut is_prime = true;
     for prime in primes.into_iter() {
-        if *prime <= (number as f64).sqrt() as u32 { // is there a better way to do this
-            // println!()
+        if *prime <= (number as f64).sqrt() as u32 { // is there a better way to do this?
             if number % prime == 0 {
                 // if it is divisible by any prime then it is composite
                 is_prime = false;
